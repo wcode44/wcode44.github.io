@@ -1,0 +1,68 @@
+
+
+.projects {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  /* display: none; */
+  /* grid-template-rows: auto 1fr 20rem; */
+  grid-template-rows: repeat(2, auto) 1fr auto;
+
+  position: absolute;
+  background-color: var(--colorWhite);
+}
+
+/* PHONE LANDSCAPE */
+/* @media screen and (max-height: 601px) and (orientation: landscape) { */
+@media screen and (max-height: 590px) and (orientation: landscape) {
+  .projects {
+    width: 100%;
+    height: 100%;
+  
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto) 1fr;
+  
+    position: absolute;
+    background-color: var(--colorWhite);
+  }
+}
+
+/* TABLET PORTRAIT */
+/* @media screen and (min-width: 650px) and (min-height: 601px) { */
+@media screen and (min-width: 650px) and (min-height: 590px) {
+
+  .projects {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+
+    display: grid;
+    grid-template-columns: 35.5rem 1fr;
+    grid-template-rows: repeat(2, auto) 1fr auto;
+
+    width: initial;
+    height: initial;
+    position: initial;
+  }
+
+}
+
+/* FULL SCREEN */
+/* @media screen and (min-width: 1000px) and (min-height: 601px) { */
+@media screen and (min-width: 1000px) and (min-height: 590px) {
+
+  .projects {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+
+    width: initial;
+    height: initial;
+    position: initial;
+    background-image: url("../../../assets/devWill.png");
+    background-size: 30rem;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+  }
+
+}

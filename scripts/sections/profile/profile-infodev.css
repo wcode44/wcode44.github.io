@@ -1,0 +1,296 @@
+/* PROFILE */
+
+.profile__infodev {
+  grid-row: 2 / 3;
+  position: relative;
+  padding-top: 6rem;
+}
+
+.profile__datosDev {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__imgAvatar {
+  max-width: 30%;
+  border-radius: 50%;
+  border: 0.5rem solid var(--colorWhite);
+  outline: 0.1rem solid rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: -5rem;
+}
+
+.profile__nameDev {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.profile__countryDev {
+  display: inherit;
+  flex-direction: inherit;
+  align-items: inherit;
+  gap: 0.5rem;
+}
+
+.profile__flagDev {
+  width: 2.3rem;
+}
+
+.profile__nameCountry {
+  font-size: 1.2rem;
+}
+
+hr {
+  width: 58%;
+  min-height: 0.4rem;
+  margin: 0.5rem 0;
+  border: 0.1rem solid var(--colorBlack);
+  background-color: var(--colorGreen);
+}
+
+.profile__socialMediaDev {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.profile__linkSocialMedia {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  font-size: 3rem;
+  color: var(--colorLightGray);
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--colorLightGray);
+}
+
+/* PHONE LANDSCAPE */
+/* @media screen and (max-height: 601px) and (orientation: landscape) { */
+@media screen and (max-height: 590px) and (orientation: landscape) {
+  .profile__infodev {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+
+    position: initial;
+    padding: 1rem 0 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: var(--colorBlack);
+  }
+
+  .profile__datosDev {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .profile__imgAvatar {
+    max-width: 5rem;
+    position: initial;
+    border-radius: 50%;
+    border: 0.2rem solid var(--colorWhite);
+    outline: 0.1rem solid rgba(0, 0, 0, 0.2);
+  }
+
+  .profile__nameDev {
+    display: none;
+  }
+
+  .profile__countryDev {
+    display: inherit;
+    flex-direction: inherit;
+    align-items: inherit;
+    gap: 0.5rem;
+  }
+
+  .profile__flagDev {
+    width: 2.3rem;
+  }
+  
+  .profile__nameCountry {
+    font-size: 1.2rem;
+    color: var(--colorWhite);
+  }
+
+  hr {
+    display: none;
+  }
+
+  .profile__socialMediaDev {
+    display: flex;
+    flex-direction: column;
+    justify-content: initial;
+    align-items: center;
+    gap: .8rem;
+  }
+
+  .profile__linkSocialMedia {
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    font-size: 3rem;
+    color: var(--colorLightGray);
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--colorLightGray);
+  }
+}
+
+/* TABLET PORTRAIT */
+/* @media screen and (min-width: 650px) and (min-height: 601px) { */
+@media screen and (min-width: 650px) and (min-height: 590px) {
+  .profile__infodev {
+    height: 100%;
+    padding: 1rem 0 1.5rem;
+    position: initial;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .profile__datosDev {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .profile__imgAvatar {
+    max-width: 5rem;
+    position: initial;
+    border-radius: 50%;
+    border: 0.2rem solid var(--colorWhite);
+    outline: 0.1rem solid rgba(0, 0, 0, 0.2);
+  }
+
+  .profile__nameDev {
+    display: none;
+  }
+
+  .profile__countryDev {
+    display: inherit;
+    flex-direction: inherit;
+    align-items: inherit;
+    gap: .5rem;
+  }
+
+  .profile__flagDev {
+    width: 2.3rem;
+  }
+  
+  .profile__nameCountry {
+    font-size: 1.2rem;
+    color: var(--colorWhite);
+  }
+
+  hr {
+    display: initial;
+    width: 58%;
+    min-height: 0.4rem;
+    margin: 0.5rem 0;
+    border: 0.1rem solid var(--colorBlack);
+    background-color: var(--colorGreen);
+  }
+
+  .profile__socialMediaDev {
+    display: flex;
+    flex-direction: column;
+    justify-content: initial;
+    align-items: center;
+    gap: .8rem;
+  }
+
+  .profile__linkSocialMedia {
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    font-size: 3rem;
+    color: var(--colorLightGray);
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--colorLightGray);
+  }
+}
+
+/* FULL SCREEN */
+/* @media screen and (min-width: 1000px) and (min-height: 601px) { */
+@media screen and (min-width: 1000px) and (min-height: 590px) {
+  .profile__infodev {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    display: initial;
+    height: auto;
+    padding: 6rem 0 0;
+    position: relative;
+  }
+
+  .profile__datosDev {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: initial;
+  }
+
+  .profile__imgAvatar {
+    max-width: 30%;
+    border-radius: 50%;
+    border: 0.5rem solid var(--colorWhite);
+    outline: 0.1rem solid rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: -5rem;
+  }
+
+  .profile__nameDev {
+    display: initial;
+  }
+
+  .profile__countryDev {
+    display: inherit;
+    flex-direction: inherit;
+    align-items: inherit;
+    gap: .5rem;
+  }
+
+  .profile__flagDev {
+    width: 2.3rem;
+  }
+  
+  .profile__nameCountry {
+    font-size: 1.2rem;
+    color: var(--colorBlack);
+  }
+
+  hr {
+    display: initial;
+    width: 58%;
+    min-height: 0.4rem;
+    margin: 0.5rem 0;
+    border: 0.1rem solid var(--colorBlack);
+    background-color: var(--colorGreen);
+  }
+
+  .profile__socialMediaDev {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: .8rem;
+  }
+
+  .profile__linkSocialMedia {
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    font-size: 3rem;
+    color: var(--colorLightGray);
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--colorLightGray);
+  }
+}

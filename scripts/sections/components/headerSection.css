@@ -1,0 +1,59 @@
+
+.technologies__header,
+.projects__header {
+  grid-row: 1 / 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  background-color: var(--colorBlack);
+}
+
+.technologies__header h2,
+.projects__header h2 {
+  font-size: 1.4rem;
+  color: var(--colorWhite);
+}
+
+.btnClose {
+  width: 2.7rem;
+  height: 2.7rem;
+
+  display: grid;
+  place-items: center;
+
+  border: none;
+  border-radius: 0.3rem;
+  background-color: var(--colorBtnClose);
+
+  color: var(--colorWhite);
+  cursor: pointer;
+}
+
+.btnClose i {
+  font-size: 2rem;
+}
+
+/* PHONE LANDSCAPE */
+/* @media screen and (max-height: 601px) and (orientation: landscape) { */
+@media screen and (max-height: 590px) and (orientation: landscape) {
+  .technologies__header,
+  .projects__header {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    background-color: var(--colorBlack);
+  }
+}
+
+/* TABLET PORTRAIT */
+  /* @media screen and (min-width: 650px) and (min-height: 601px) { */
+  @media screen and (min-width: 650px) and (min-height: 590px) {
+    .technologies__header,
+    .projects__header {
+      display: none;
+    }
+  }

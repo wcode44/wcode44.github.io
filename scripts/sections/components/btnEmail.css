@@ -1,0 +1,76 @@
+
+@keyframes btnEmail {
+  0% { transform: rotateZ(0deg) scale(1); }
+  25% { transform: rotateZ(-10deg) scale(1); }
+  75% { transform: rotateZ(10deg) scale(1); }
+  100% { transform: rotateZ(0deg) scale(1); }
+}
+
+.btnSendEmail {
+  display: grid;
+  place-items: center;
+  width: 5.5rem;
+  height: 5.5rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: transparent;
+  border: 0.2rem dotted var(--colorWhite);
+  cursor: pointer;
+}
+
+.imgEmail {
+  max-width: 60%;
+  animation-name: btnEmail;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+/* PHONE LANDSCAPE */
+/* @media screen and (max-height: 601px) and (orientation: landscape) { */
+@media screen and (max-height: 590px) and (orientation: landscape) {
+  .btnSendEmail {
+    width: 4.5rem;
+    height: 4.5rem;
+    position: initial;
+    border: none;
+    /* border-color: var(--colorGray); */
+  }
+
+  .imgEmail {
+    max-width: 80%;
+  }
+}
+
+/* TABLET PORTRAIT */
+/* @media screen and (min-width: 650px) and (min-height: 601px) { */
+@media screen and (min-width: 650px) and (min-height: 590px) {
+  .btnSendEmail {
+    display: grid;
+    place-items: center;
+    width: 5.5rem;
+    height: 5.5rem;
+    position: initial;
+    background-color: transparent;
+    border: 0.2rem dotted var(--colorWhite);
+    cursor: pointer;
+  }
+}
+
+/* FULL SCREEN */
+/* @media screen and (min-width: 1000px) and (min-height: 601px) { */
+@media screen and (min-width: 1000px) and (min-height: 590px) {
+  .btnSendEmail {
+    display: grid;
+    place-items: center;
+    width: 5.5rem;
+    height: 5.5rem;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: transparent;
+    border: 0.2rem dotted var(--colorWhite);
+    cursor: pointer;
+  }
+}

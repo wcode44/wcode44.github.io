@@ -1,0 +1,326 @@
+
+.technologies__html,
+.technologies__css,
+.technologies__js {
+  grid-row: 3/4;
+  display: grid;
+  grid-template-rows: repeat(3, auto) 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.technologies__title h3 {
+  width: 18.4rem;
+  font-size: 3rem;
+  font-weight: 600;
+  border-bottom: 0.7rem solid var(--colorBlack);
+}
+
+.technologies__concept {
+  padding: 1.5rem;
+  border-left: 0.7rem solid transparent;
+  background-color: var(--colorGray);
+  border-radius: .3rem;
+}
+
+.technologies__concept p {
+  font-size: 1.4rem;
+  text-align: left;
+  color: var(--colorWhite);
+}
+
+.technologies__plus {
+  display: grid;
+  grid-template-columns: 5.7rem 1fr;
+  gap: 0.7rem;
+  padding: 0.7rem;
+  background-color: var(--colorPlus);
+  border-radius: .3rem;
+}
+
+.technologies__plus span {
+  height: 5.7rem;
+  border: 0.1rem dotted var(--colorGray);
+  background-color: var(--colorPlusIcon);
+  background-image: url("../../../assets/light.png");
+  background-size: 3rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.technologies__plus p {
+  align-self: center;
+  font-size: 1.3rem;
+}
+
+.technologies__conceptsLearned {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 0.7rem;
+
+  padding: 0.7rem;
+  border-radius: .3rem;
+  background-color: var(--colorGray);
+}
+
+.technologies__conceptsLearned h4 {
+  padding: .5rem 0;
+  font-size: 1.3rem;
+  color: var(--colorWhite);
+}
+
+.technologies__conceptsLearned ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, auto);
+  grid-template-rows: repeat(auto-fit, 3rem);
+  grid-auto-flow: column;
+  gap: 0.7rem;
+
+  overflow-x: scroll;
+}
+
+/* ESTO ES NECESARIO PARA QUE LOS OTROS FUNCIONEN */
+.technologies__conceptsLearned ul::-webkit-scrollbar {
+  height: .4rem; 
+}
+
+/* CUERPO DEL SCROLLBAR */
+.technologies__conceptsLearned ul::-webkit-scrollbar-thumb {
+  background-color: var(--colorGreen);
+  border-radius: 1rem;
+}
+
+/* LA PISTA */
+/* .technologies__conceptsLearned ul::-webkit-scrollbar-track {
+  background-color: var(--colorBlack);
+  border-radius: 1rem;
+} */
+
+.technologies__conceptsLearned ul li {
+  min-width: 28rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: .7rem solid transparent;
+  background-color: var(--colorBlack);
+}
+
+.technologies__conceptsLearned ul li p {
+  padding: 0 1rem;
+  font-size: 1.4rem;
+  color: var(--colorWhite);
+}
+
+.technologies__conceptsLearned ul li span {
+  width: 2rem;
+  height: 2rem;
+
+  display: grid;
+  place-items: center;
+
+  margin-right: 0.7rem;
+  border-radius: 50%;
+
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.technologies__conceptsLearned .high {
+  background-color: #01ae20;
+}
+
+.technologies__conceptsLearned .medium {
+  background-color: #facb01;
+}
+
+.technologies__conceptsLearned .low {
+  color: var(--colorWhite);
+  background-color: #c92027;
+}
+
+.technologies__html .technologies__concept {
+  border-left-color: var(--colorHTML);
+}
+
+.technologies__html .technologies__conceptsLearned ul li {
+  border-left-color: var(--colorHTML);
+}
+
+.technologies__css .technologies__concept {
+  border-left-color: var(--colorCSS);
+}
+
+.technologies__css .technologies__conceptsLearned ul li {
+  border-left-color: var(--colorCSS);
+}
+
+.technologies__js .technologies__concept {
+  border-left-color: var(--colorJS);
+}
+
+.technologies__js .technologies__conceptsLearned ul li {
+  border-left-color: var(--colorJS);
+}
+
+/* PHONE LANDSCAPE */
+/* @media screen and (max-height: 601px) and (orientation: landscape) { */
+@media screen and (max-height: 590px) and (orientation: landscape) {
+  .technologies__html,
+  .technologies__css,
+  .technologies__js {
+    grid-column: 1 / 2;
+    grid-row: 2 / -1;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto) 1fr;
+    gap: 1rem;
+    padding: 1rem 1rem 1.5rem;
+  }
+
+  .technologies__title {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .technologies__title h3 {
+    width: 50%;
+  }
+
+  .technologies__concept {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .technologies__plus {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+
+  .technologies__conceptsLearned {
+    grid-column: 2 / 3;
+    grid-row: 2 / -1;
+  }
+
+  .technologies__conceptsLearned ul li {
+    /* min-width: 26rem; */
+  }
+}
+
+/* TABLET PORTRAIT */
+/* @media screen and (min-width: 650px) and (min-height: 601px) { */
+@media screen and (min-width: 650px) and (min-height: 590px) {
+  .technologies__html,
+  .technologies__css,
+  .technologies__js {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+
+    display: grid;
+    grid-template-rows: repeat(3, auto) 1fr;
+    gap: 1rem;
+    padding: 1rem 0 1.5rem;
+  }
+
+  .technologies__title h3 {
+    width: 18.4rem;
+    font-size: 3rem;
+    font-weight: 600;
+    border-bottom: 0.7rem solid var(--colorBlack);
+  }
+
+  .technologies__concept {
+    width: 70%;
+    padding: 1.5rem;
+    border-left: 0.7rem solid transparent;
+    background-color: var(--colorGray);
+    border-radius: .3rem;
+  }
+
+  .technologies__plus {
+    width: 70%;
+    display: grid;
+    grid-template-columns: 5.7rem 1fr;
+    gap: 0.7rem;
+    padding: 0.7rem;
+    background-color: var(--colorPlus);
+    border-radius: .3rem;
+  }
+
+  .technologies__conceptsLearned {
+    width: 70%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 0.7rem;
+  
+    padding: 0.7rem;
+    border-radius: .3rem;
+    background-color: var(--colorGray);
+  }
+}
+
+/* FULL SCREEN */
+/* @media screen and (min-width: 1000px) and (min-height: 601px) { */
+@media screen and (min-width: 1000px) and (min-height: 590px) {
+  .technologies__html,
+  .technologies__css,
+  .technologies__js {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto) 1fr;
+    gap: 1rem;
+    padding: 1rem 0 1.5rem;
+  }
+
+  .technologies__title {
+    width: 18.4rem;
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .technologies__title h3 {
+    width: 18.4rem;
+    font-size: 3rem;
+    font-weight: 600;
+    border-bottom: 0.7rem solid var(--colorBlack);
+  }
+
+  .technologies__concept {
+    width: initial;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    padding: 1.5rem;
+    border-left: 0.7rem solid transparent;
+    background-color: var(--colorGray);
+    border-radius: .3rem;
+  }
+
+  .technologies__plus {
+    width: initial;
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    display: grid;
+    grid-template-columns: 5.7rem 1fr;
+    gap: 0.7rem;
+    padding: 0.7rem;
+    background-color: var(--colorPlus);
+    border-radius: .3rem;
+  }
+
+  .technologies__conceptsLearned {
+    width: initial;
+    grid-column: 2 / 3;
+    grid-row: 2 / -1;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 0.7rem;
+  
+    padding: 0.7rem;
+    border-radius: .3rem;
+    background-color: var(--colorGray);
+  }
+}

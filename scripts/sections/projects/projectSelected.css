@@ -1,0 +1,107 @@
+
+.projects__selected {
+  grid-row: 3/4;
+  padding: 2rem;
+  margin: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  position: relative;
+  border-radius: .5rem;
+  /* overflow: hidden; */
+
+  /* background-color: aqua; */
+  background-image: url("../../../assets/backgroundProject.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.projects__selected::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(126deg, rgba(250,250,250,0.8155637254901961) 0%, rgba(253,253,253,0.82) 4%, rgba(255,255,255,0.9) 11%, rgba(255,255,255,1) 34%, rgba(255,255,255,1) 100%);
+}
+
+.projects__selected > * {
+  z-index: 1;
+}
+
+.projects__type {
+  font-size: 1.3rem;
+  /* padding: 1rem 0; */
+  /* background-color: aqua; */
+}
+
+.projects__title {
+  /* display: flex; */
+  /* width: 70%; */
+  font-size: 3rem;
+  padding: 1rem 0;
+  border-bottom: .3rem solid black;
+  /* background-color: aquamarine; */
+}
+
+.projects__description {
+  font-size: 1.5rem;
+  padding: 2.5rem 0;
+  /* background-color: lightcoral; */
+}
+
+.projects__techUsed {
+  display: flex;
+  align-items: center;
+
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  font-size: 2.5rem;
+
+  /* background-color: aqua; */
+}
+
+.projects__btnStart {
+  display: grid;
+  place-items: center;
+
+  position: absolute;
+  top: 6rem;
+  right: 1rem;
+
+  border-radius: 50%;
+  opacity: .8;
+  font-size: 5rem;
+  color: var(--colorBlack);
+  cursor: pointer;
+}
+
+.projects__btnStart:hover {
+  opacity: 1;
+}
+
+/* PHONE LANDSCAPE */
+/* @media screen and (max-height: 601px) and (orientation: landscape) { */
+@media screen and (max-height: 590px) and (orientation: landscape) {
+  .projects__selected {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+}
+
+/* TABLET PORTRAIT */
+/* @media screen and (min-width: 650px) and (min-height: 601px) { */
+@media screen and (min-width: 650px) and (min-height: 590px) {
+  .projects__selected {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    padding: 2rem;
+    margin: 1rem 0 1rem 2.5rem;
+  }
+}

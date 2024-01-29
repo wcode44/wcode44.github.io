@@ -1,0 +1,133 @@
+
+/* GOOGLE FONT: DOSIS */
+/* @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;600&display=swap'); */
+
+@import url("../root.css");
+@import url("./sections/profile/profile.css");
+@import url("./sections/profile/profile-header.css");
+@import url("./sections/profile/profile-infodev.css");
+@import url("./sections/profile/profile-presentation.css");
+@import url("./sections/profile/profile-projectTech.css");
+@import url("./sections/profile/profile-buttons.css");
+@import url("./sections/components/btnEmail.css");
+@import url("./sections/components/btnViewProfile.css");
+@import url("./sections/components/headerPortfolio.css");
+@import url("./sections/technologies/technologies.css");
+@import url("./sections/components/headerSection.css");
+@import url("./sections/technologies/navbarTechnologies.css");
+@import url("./sections/technologies/toolsTechnologies.css");
+@import url("./sections/components/selectTechnologies.css");
+@import url("./sections/projects/projects.css");
+@import url("./sections/projects/filterProjects.css");
+@import url("./sections/projects/projectSelected.css");
+@import url("./sections/projects/navbarProjects.css");
+
+
+.app {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  color: var(--colorBlack);
+  font-family: 'Roboto', sans-serif;
+  background: var(--bgPortrait);
+}
+
+.app--activateModal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(0,0,0,.4);
+}
+
+.portfolio {
+
+  width: 90vw;
+  min-width: 32.5rem;
+  /* min-width: 33rem; */
+  max-width: 35rem;
+
+  height: 85vh;
+  min-height: 70rem;
+  max-height: 70rem;
+  
+  display: grid;
+
+  margin: .3rem 0;
+  border: .1rem solid var(--colorBlack);
+  border-radius: .4rem;
+  overflow: hidden;
+
+  position: relative;
+  
+}
+
+.portfolio::after {
+  content: "";
+  width: 100%;
+  min-height: 0.5rem;
+  position: absolute;
+  bottom: 0;
+  border-top: 0.1rem solid var(--colorBlack);
+  background-color: var(--colorGreen);
+  z-index: 3;
+}
+
+/* PHONE LANDSCAPE */
+/* @media (height < 600px) and (orientation: landscape) { */
+/* @media screen and (max-height: 601px) and (orientation: landscape) { */
+@media screen and (max-height: 590px) and (orientation: landscape) {
+  .portfolio {
+
+    width: 98vw;
+    min-width: 65rem;
+    max-width: 70rem;
+
+    height: 95vh;
+    min-height: 32rem;
+    max-height: 40rem;
+
+  }
+}
+
+/* TABLET PORTRAIT */
+/* @media (width >=650px) and (height >=600px) { */
+/* @media screen and (min-width: 650px) and (min-height: 601px) { */
+@media screen and (min-width: 650px) and (min-height: 590px) {
+  .portfolio {
+    grid-template-columns: 1fr 27.5rem 6.6rem;
+    grid-template-rows: 12rem 1fr;
+
+    width: 90vw;
+    min-width: initial;
+    max-width: 62.5rem;
+
+    height: 90vh;
+    min-height: 70rem;
+    max-height: 70rem;
+
+  }
+}
+
+/* FULL SCREEN */
+/* @media (width > 1000px) and (height >=600px) { */
+/* @media screen and (min-width: 1000px) and (min-height: 601px) { */
+@media screen and (min-width: 1000px) and (min-height: 590px) {
+  .portfolio {
+    grid-template-columns: 1fr 34rem;
+
+    width: 90vw;
+    min-width: 100rem;
+    max-width: 110rem;
+
+    height: 90vh;
+    min-height: 70rem;
+    max-height: 70rem;
+
+    margin: 2rem 0;
+
+  }
+}

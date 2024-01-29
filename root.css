@@ -1,0 +1,46 @@
+:root {
+
+  --colorLightblue: #12cdd4;
+  --colorGreen: #ccf84f;
+  --colorGray: #39393b;
+  --colorLightGray: #58585a;
+  --colorBtnClose: #9E0B0B;
+
+  --colorPlus: #FEF4CF;
+  --colorPlusIcon: #FDEBA9;
+
+  --colorWhite: #FFF;
+  --colorBlack: #2e2e2f;
+
+  --colorHTML: #E34D23;
+  --colorCSS: #254AE8;
+  --colorJS: #F5DD1B;
+  --colorGit: #DE4C36;
+  --colorVSCode: #027BCE;
+
+  --bgPorcent: calc(((100vw - 100rem) / 2) + 67.5rem);
+  --bgPortrait: linear-gradient(
+    105deg,
+    var(--colorLightblue) 0%,
+    var(--colorLightblue) 50%,
+    var(--colorGreen) 50%,
+    var(--colorGreen) 100%
+  );
+
+  font-size: 62.5%;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}

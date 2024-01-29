@@ -1,0 +1,83 @@
+
+.profile__header {
+  grid-row: 1 / 2;
+
+  padding: 2.5%;
+  position: relative;
+
+  background-color: var(--colorBlack);
+  background-image: url("../../../assets/background.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.profile__titleHeader {
+  width: 50%;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-shadow: 0 0 2rem var(--colorGreen);
+  color: var(--colorWhite);
+  padding-bottom: 0.5rem;
+  border-bottom: 0.4rem solid var(--colorGreen);
+}
+
+/* PHONE LANDSCAPE */
+/* @media screen and (max-height: 601px) and (orientation: landscape) { */
+@media screen and (max-height: 590px) and (orientation: landscape) {
+  .profile__header {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+
+    padding: 0 1.5rem;
+    position: initial;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: initial;
+    background-image: initial;
+    background-size: initial;
+    background-position: initial;
+  }
+
+  .profile__titleHeader {
+    width: 50%;
+    height: 100%;
+    padding: initial;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-shadow: initial;
+    color: var(--colorBlack);
+    border-bottom: 0.4rem solid var(--colorGreen);
+
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* TABLET PORTRAIT */
+/* @media screen and (min-width: 650px) and (min-height: 601px) { */
+@media screen and (min-width: 650px) and (min-height: 590px) {
+  .profile__header {
+    display: none;
+  }
+}
+
+/* FULL SCREEN */
+/* @media screen and (min-width: 1000px) and (min-height: 601px) { */
+@media screen and (min-width: 1000px) and (min-height: 590px) {
+  .profile__header {
+    display: block;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+
+    padding: 2.5%;
+    position: relative;
+
+    background-color: var(--colorBlack);
+    background-image: url("../../../assets/background.jpg");
+    background-size: cover;
+    background-position: bottom;
+  }
+}

@@ -1,0 +1,88 @@
+
+.technologies__menu {
+  grid-row: 2 / 3;
+  background-color: var(--colorGray);
+}
+
+.technologies__menu ul {
+  display: flex;
+  gap: .7rem;
+  padding: .7rem 1.2rem;
+}
+
+.technologies__lblTech {
+  width: 5.6rem;
+  height: 5.6rem;
+  display: grid;
+  place-items: center;
+  border: .1rem solid #000;
+  cursor: pointer;
+  background-color: var(--colorBlack);
+}
+
+.technologies__lblTech i {
+  color: #040D12;
+  font-size: 4.5rem;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.technologies__lblTech--active0 {
+  border-color: var(--colorHTML);
+  outline: .22rem solid var(--colorHTML);
+}
+
+.technologies__lblTech--active0 i {
+  color: var(--colorHTML);
+}
+
+.technologies__lblTech--active1 {
+  border-color: var(--colorCSS);
+  outline: .22rem solid var(--colorCSS);
+}
+
+.technologies__lblTech--active1 i {
+  color: var(--colorCSS);
+}
+
+.technologies__lblTech--active2 {
+  border-color: var(--colorJS);
+  outline: .22rem solid var(--colorJS);
+}
+
+.technologies__lblTech--active2 i {
+  color: var(--colorJS);
+}
+
+/* PHONE LANDSCAPE */
+/* @media screen and (max-height: 601px) and (orientation: landscape) { */
+@media screen and (max-height: 590px) and (orientation: landscape) {
+  .technologies__menu {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .technologies__menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .7rem;
+    padding: .7rem 0 0;;
+  }
+}
+
+/* TABLET PORTRAIT */
+/* @media screen and (min-width: 650px) and (min-height: 601px) { */
+@media screen and (min-width: 650px) and (min-height: 590px) {
+  .technologies__menu {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+
+    display: flex;
+    justify-content: space-between;
+
+    border-radius: .3rem;
+  }
+}

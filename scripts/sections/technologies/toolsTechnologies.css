@@ -1,0 +1,66 @@
+
+.technologies__tools {
+  grid-row: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: .7rem;
+  margin-bottom: .5rem;
+
+  background-color: var(--colorGray);
+}
+
+.technologies__tools h2 {
+  font-size: 1.5rem;
+  color: var(--colorWhite);
+  padding-left: .7rem;
+}
+
+.technologies__tools ul {
+  display: flex;
+  gap: .7rem;
+}
+
+.technologies__btnTools {
+  width: 5.6rem;
+  height: 5.6rem;
+  display: grid;
+  place-items: center;
+  border: .1rem solid #000;
+  background-color: var(--colorBlack);
+}
+
+.technologies__btnTools i {
+  font-size: 4.5rem; 
+}
+
+.bxl-git {
+  color: var(--colorGit);
+}
+.bxl-visual-studio {
+  color: var(--colorVSCode);
+}
+
+/* PHONE LANDSCAPE */
+/* @media screen and (max-height: 601px) and (orientation: landscape) { */
+@media screen and (max-height: 590px) and (orientation: landscape) {
+  .technologies__tools {
+    display: none;
+  }
+}
+
+/* TABLET PORTRAIT */
+/* @media screen and (min-width: 650px) and (min-height: 601px) { */
+@media screen and (min-width: 650px) and (min-height: 590px) {
+  .technologies__tools {
+    display: initial;
+    padding: initial;
+    margin-bottom: initial;
+    background-color: initial;
+  }
+
+  .technologies__tools h2 {
+    display: none;
+  }
+}

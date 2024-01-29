@@ -1,0 +1,175 @@
+.profile__projectTech {
+  grid-row: 4 / 5;
+  width: 88%;
+  margin: 0 auto;
+  padding: 0.5rem;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+
+  border-radius: 0.5rem;
+  background-color: var(--colorBlack);
+}
+
+.profile__counterTech,
+.profile__counterProject {
+  height: 6.6rem;
+  text-align: center;
+
+  border-radius: 0.3rem;
+  background-color: var(--colorWhite);
+
+  display: grid;
+  place-content: center;
+  gap: 0.5rem;
+}
+
+.profile__counterTech span:nth-child(1),
+.profile__counterProject span:nth-child(1) {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 3rem;
+}
+
+.profile__counterTech span:nth-child(2),
+.profile__counterProject span:nth-child(2) {
+  font-size: 1.5rem;
+}
+
+.profile__description {
+  display: none;
+}
+
+/* PHONE LANDSCAPE */
+/* @media screen and (max-height: 601px) and (orientation: landscape) { */
+@media screen and (max-height: 590px) and (orientation: landscape) {
+  .profile__projectTech {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+
+    display: grid;
+    align-self: center;
+
+    width: 37rem;
+    margin: 0 0 0 3rem;
+    padding: initial;
+    border-radius: initial;
+
+    grid-template-columns: initial;
+    grid-template-rows: repeat(2, 10.5rem);
+    place-items: center;
+    gap: 0.8rem;
+
+    background-color: transparent;
+  }
+
+  .profile__projectTech > section {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    background-color: var(--colorGray);
+    border: 0.4rem solid var(--colorBlack);
+    border-radius: 0.5rem;
+  }
+
+  .profile__counterTech,
+  .profile__counterProject {
+    display: grid;
+    place-content: center;
+    gap: 0.5rem;
+    height: 10rem;
+    text-align: center;
+    border-radius: 0.3rem;
+    background-color: var(--colorWhite);
+  }
+
+  .profile__counterTech span:nth-child(1),
+  .profile__counterProject span:nth-child(1) {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 3rem;
+  }
+
+  .profile__counterTech span:nth-child(2),
+  .profile__counterProject span:nth-child(2) {
+    font-size: 1.5rem;
+  }
+
+  .profile__description {
+    display: flex;
+    align-items: center;
+
+    font-size: 1.35rem;
+    color: var(--colorWhite);
+
+    padding-inline: 1rem;
+  }
+}
+
+/* TABLET PORTRAIT */
+/* @media screen and (min-width: 650px) and (min-height: 601px) { */
+@media screen and (min-width: 650px) and (min-height: 590px) {
+  .profile__projectTech {
+    display: none;
+  }
+}
+
+/* FULL SCREEN */
+/* @media screen and (min-width: 1000px) and (min-height: 601px) { */
+@media screen and (min-width: 1000px) and (min-height: 590px) {
+  .profile__projectTech {
+    grid-row: 4 / 5;
+    width: 88%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    padding: initial;
+    border-radius: .5rem;
+    background-color: initial;
+  }
+
+  .profile__projectTech > section {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: initial;
+
+    border-radius: 0.5rem;
+    border: 0.5rem solid var(--colorBlack);
+    background-color: var(--colorGray);
+  }
+
+  .profile__counterTech,
+  .profile__counterProject {
+    height: 7rem;
+    display: grid;
+    place-content: center;
+    gap: 0.5rem;
+    text-align: center;
+    border-radius: 0.3rem;
+    background-color: var(--colorWhite);
+  }
+  
+  .profile__counterTech span:nth-child(1),
+  .profile__counterProject span:nth-child(1) {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 3rem;
+  }
+
+  .profile__counterTech span:nth-child(2),
+  .profile__counterProject span:nth-child(2) {
+    font-size: 1.2rem;
+  }
+
+  .profile__description {
+    display: grid;
+    place-items: center;
+    padding: 0.5rem 0.8rem;
+    font-size: 1.3rem;
+    color: var(--colorWhite);
+  }
+
+}

@@ -1,0 +1,40 @@
+
+.profile__presentation {
+  grid-row: 3 / 4;
+  width: 88%;
+  margin: 0 auto;
+  align-self: center;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+
+/* PHONE LANDSCAPE */
+/* @media screen and (max-height: 601px) and (orientation: landscape) { */
+@media screen and (max-height: 590px) and (orientation: landscape) {
+  .profile__presentation {
+    display: none;
+  }
+}
+
+/* TABLET PORTRAIT */
+/* @media screen and (min-width: 650px) and (min-height: 601px) { */
+@media screen and (min-width: 650px) and (min-height: 590px) {
+  .profile__presentation {
+    display: none;
+  }
+}
+
+/* FULL SCREEN */
+/* @media screen and (min-width: 1000px) and (min-height: 601px) { */
+@media screen and (min-width: 1000px) and (min-height: 590px) {
+  .profile__presentation {
+    display: initial;
+    grid-row: 3 / 4;
+    width: 88%;
+    margin: 0 auto;
+    align-self: center;
+    font-size: 1.6rem;
+    text-align: center;
+  }
+}

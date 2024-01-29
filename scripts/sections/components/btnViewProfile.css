@@ -1,0 +1,23 @@
+
+.btnViewProfile {
+  width: 5rem;
+  height: 5rem;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  border: .3rem solid var(--colorBlack);
+
+  z-index: 1;
+  background-color: var(--colorGray);
+
+  position: absolute;
+  right: calc(100% + 1rem);
+  bottom: 1.5rem;
+
+  font-size: 2.5rem;
+  color: var(--colorWhite);
+
+  cursor: pointer;
+}

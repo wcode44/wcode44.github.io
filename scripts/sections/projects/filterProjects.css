@@ -1,0 +1,244 @@
+
+.projects__filter {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  background-color: var(--colorGray);
+  background-image: url("../../../assets/maletin1.png");
+  background-repeat: no-repeat;
+  background-size: 3.6rem;
+  background-position: 1.5rem .6rem;
+}
+
+/* SECTION 1 */
+.projects__lblFilter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: .8rem;
+  border-bottom: .1rem solid var(--colorBlack);
+}
+
+.projects__lblFilter p {
+  font-size: 1.5rem;
+  color: var(--colorWhite);
+}
+
+.checkFilter {
+  display: none;
+}
+
+.lblCheckFilter {
+  display: flex;
+  align-items: center;
+
+  width: 6rem;
+  height: 3.4rem;
+
+  position: relative;
+
+  border: .1rem solid #313131;
+  border-radius: .4rem;
+  background-color: #525252;
+  cursor: pointer;
+
+  box-shadow: 0 0 .3rem #414141 inset;
+}
+
+.btnControl {
+  display: inherit;
+  align-items: inherit;
+  justify-content: center;
+
+  width: 2.4rem;
+  height: 2.4rem;
+
+  position: absolute;
+  left: .45rem;
+
+  border-radius: .3rem;
+  background-color: var(--colorGray);
+  box-shadow: 0 .2rem .5rem #414141;
+}
+
+.btnControl::after {
+  content: "";
+  display: block;
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
+
+  box-shadow: .1rem -.1rem .4rem #272121 inset;
+  background-color: lightgray;
+}
+
+.lblCheckFilter--active .btnControl {
+  left: initial;
+  right: .45rem;
+}
+
+.lblCheckFilter--active .btnControl::after {
+  background-color: #16FF00;
+} 
+
+/* SECTION 2 */
+.projects__menuBtnFilter {
+  display: none;
+}
+
+.projects__menuBtnFilter--active {
+  display: initial;
+  /* display: block; */
+  /* transition: all 1s; */
+}
+
+.projects__menuBtnFilter ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 6rem;
+}
+
+.projects__menuBtnFilter li:not(:last-child) .btnFilter {
+  border-right: .1rem solid var(--colorBlack);
+}
+
+.btnFilter {
+  width: 100%;
+  height: 100%;
+  border: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: .5rem;
+
+  cursor: pointer;
+  color: #525252;
+  background-color: transparent;
+}
+
+.btnFilter i {
+  font-size: 3rem;
+}
+
+.btnFilter span {
+  font-size: .9rem;
+  display: none;
+}
+
+.btnFilter--active {
+  color: var(--colorWhite);
+  background-color: #414141;
+}
+
+.btnFilter--active i {
+  font-size: 2.2rem;
+}
+
+.btnFilter--active span {
+  display: initial;
+}
+
+.btnFilter:hover {
+  background-color: #414141;
+}
+
+/* PHONE LANDSCAPE */
+/* @media screen and (max-height: 601px) and (orientation: landscape) { */
+@media screen and (max-height: 590px) and (orientation: landscape) {
+  .projects__filter {
+    position: relative;
+    background-color: var(--colorGray);
+  }
+
+  /* SECTION 2 */
+  .projects__menuBtnFilter {
+    display: none;
+    /* display: initial; */
+
+    width: 50%;
+    /* background-color: red; */
+    border-right: .1rem solid var(--colorBlack);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .projects__menuBtnFilter ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 5rem;
+  }
+
+  .projects__menuBtnFilter--active {
+    display: initial;
+    /* display: block; */
+  }
+
+  .btnFilter {
+    width: 100%;
+    height: 100%;
+    border: none;
+  
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    gap: .5rem;
+  
+    cursor: pointer;
+    color: #525252;
+    background-color: var(--colorGray);
+  }
+
+  .btnFilter:hover {
+    background-color: #414141;
+  }
+
+  .btnFilter--active {
+    color: var(--colorWhite);
+    background-color: #414141;
+  }
+}
+
+/* TABLET PORTRAIT */
+/* @media screen and (min-width: 650px) and (min-height: 601px) { */
+@media screen and (min-width: 650px) and (min-height: 590px) {
+  .projects__filter {
+    margin: 0 2.5rem;
+    border-radius: .4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .projects__lblFilter {
+    padding: 1rem;
+    border-bottom: initial;
+  }
+
+  .projects__menuBtnFilter {
+    display: none;
+    width: 33rem;
+    /* height: 100%; */
+    /* display: initial; */
+    position: absolute;
+    top: 0;
+    background-color: var(--colorGray);
+  }
+
+  .projects__menuBtnFilter ul {
+    grid-template-rows: 5.4rem;
+  }
+
+  .projects__menuBtnFilter--active {
+    display: initial;
+    /* display: block; */
+  }
+
+  .btnFilter {
+    border-right: .1rem solid var(--colorBlack);
+  }
+}

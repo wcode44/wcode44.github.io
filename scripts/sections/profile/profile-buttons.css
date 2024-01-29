@@ -1,0 +1,78 @@
+
+.profile__buttons {
+  grid-row: 5 / 6;
+
+  width: 88%;
+  margin: .5rem auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .5rem;
+
+}
+
+[class^="btn__view"] {
+  height: 7rem;
+
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--colorBlack);
+
+  background-size: 4.2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  cursor: pointer;
+  box-shadow: 0 1rem 1.5rem -0.7rem var(--colorLightGray);
+}
+
+.btn__viewTechnologies {
+  background-color: var(--colorGreen);
+  background-image: url("../../../assets/tech.png");
+}
+
+.btn__viewProjects {
+  background-color: var(--colorBlack);
+  background-image: url("../../../assets/projects.png");
+}
+
+/* PHONE LANDSCAPE */
+/* @media screen and (max-height: 601px) and (orientation: landscape) { */
+@media screen and (max-height: 590px) and (orientation: landscape) {
+  .profile__buttons {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    align-self: center;
+    width: initial;
+    padding: 0 0 0 0.5rem;
+    margin: initial;
+    display: grid;
+    grid-template-columns: initial;
+    grid-template-rows: repeat(2, auto);
+    gap: 0.5rem;
+  }
+
+  [class^="btn__view"] {
+    width: 10.8rem;
+    height: 10.8rem;
+
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--colorBlack);
+
+    background-size: 4.2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    cursor: pointer;
+    box-shadow: 0 1rem 1.5rem -0.7rem var(--colorLightGray);
+  }
+}
+
+/* TABLET PORTRAIT */
+/* @media screen and (min-width: 650px) and (min-height: 601px) { */
+@media screen and (min-width: 650px) and (min-height: 590px) {
+  .profile__buttons {
+    display: none;
+    /* ESTO SE TIENE QUE ELIMINAR CUANDO ESTE EN TABLET 
+    Y CREAR UN NAV EN EL HEADER DEL PORTAFOLIO, NO DEBE EXISTIR */
+  }
+}
