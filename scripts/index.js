@@ -4,7 +4,7 @@
 import profile from "./sections/profile/profile.js";
 import btnEmail from "./sections/components/btnEmail.js";
 import {iconArrow, btnViewProfile} from "./sections/components/btnViewProfile.js";
-import profileButtons from "./sections/profile/profile-buttons.js";
+// import profileButtons from "./sections/profile/profile-buttons.js";
 import menuPortfolio from "./sections/components/headerPortfolio.js";
 import technologies from "./sections/technologies/technologies.js";
 import toolsTechnologies from "./sections/technologies/toolsTechnologies.js";
@@ -17,7 +17,7 @@ const sectionProfile = profile();
 const buttonEmail = btnEmail();
 const iconBtnArrow = iconArrow();
 const btnArrow = btnViewProfile();
-const sectionButtons = profileButtons();
+// const sectionButtons = profileButtons();
 const headerPortfolio = menuPortfolio();
 
 // TECHNOLOGIES
@@ -31,6 +31,7 @@ const app = document.querySelector(".app");
 const portfolio = document.createElement("main");
 portfolio.classList.add("portfolio");
 
+portfolio.appendChild(headerPortfolio);
 portfolio.appendChild(sectionProfile);
 portfolio.appendChild(sectionProjects);
 portfolio.appendChild(sectionTechnologies);
@@ -42,25 +43,57 @@ app.appendChild(portfolio);
 // INSERTANDO BOTONES: PROYECTO, TECNOLOGIAS, SEGUN EL VIEWPORT
 //============================================================
 function insertBtnsNavigation() {
-  const mobilePortrait = window.matchMedia("(max-width: 649px)").matches;
   // const mobileLandscape = window.matchMedia("(max-height: 600px)").matches;
+  const mobilePortrait = window.matchMedia("(max-width: 649px)").matches;
   const mobileLandscape = window.matchMedia("(max-height: 589px)").matches;
 
+  const groupButtons = document.querySelector(".profile__buttons");
+  const headerPortfolio = document.querySelector(".portfolio__header");
+
+  // VERIFICAR SI ESTA EN TAMAÑO PHONE
   if(mobilePortrait || mobileLandscape) {
-    if(!sectionProfile.contains(sectionButtons)) {
-      sectionProfile.appendChild(sectionButtons);
-      headerPortfolio.remove();
-      document.querySelector(".technologies__tools").remove();
-      document.querySelector(".technologies").appendChild(toolsTech);
+
+    // VERIFICAR SI LA SECCION DE GROUP BUTTONS ESTA DESACTIVADO, ACTIVARLO
+    if(groupButtons.classList.contains("profile__buttons--disabled")) {
+      groupButtons.classList.replace("profile__buttons--disabled", "profile__buttons--enabled");
     }
+
+    // VERIFICA SI ESTA ACTIVO EL HEADER, DESACTIVALO
+    if(headerPortfolio.classList.contains("portfolio__header--enabled")) {
+      headerPortfolio.classList.replace("portfolio__header--enabled", "portfolio__header--disabled");
+    }
+
+    // SI ESTAN ACTIVADOS, DESACTIVALOS
+    if(sectionProjects.classList.contains("projects--enabled") && sectionTechnologies.classList.contains("technologies--enabled")) {
+      sectionProjects.classList.replace("projects--enabled", "projects--disabled");
+      sectionTechnologies.classList.replace("technologies--enabled", "technologies--disabled");
+    }
+
+    document.querySelector(".technologies__tools").remove();
+    document.querySelector(".technologies").appendChild(toolsTech);
+
     // DEL TABLET HACIA ADELANTE
   } else {
-    if(!portfolio.contains(headerPortfolio)) {
-      portfolio.insertBefore(headerPortfolio, sectionProfile);
-      sectionButtons.remove();
-      document.querySelector(".technologies__tools").remove();
-      document.querySelector(".technologies__menu").appendChild(toolsTech);
+
+    // VERIFICAR SI LA SECCION DE GROUP BUTTONS ESTA ACTIVADO, DESACTIVARLO
+    if(groupButtons.classList.contains("profile__buttons--enabled")) {
+      groupButtons.classList.replace("profile__buttons--enabled", "profile__buttons--disabled");
     }
+
+    // VERIFICA SI ESTA DESACTIVADO EL HEADER, ACTIVARLO
+    if(headerPortfolio.classList.contains("portfolio__header--disabled")) {
+      headerPortfolio.classList.replace("portfolio__header--disabled", "portfolio__header--enabled");
+    }
+
+    // SI ESTAN DESACTIVADOS, ACTIVALOS
+    if(sectionProjects.classList.contains("projects--disabled") && sectionTechnologies.classList.contains("technologies--disabled")) {
+      sectionProjects.classList.replace("projects--disabled", "projects--enabled");
+      sectionTechnologies.classList.replace("technologies--disabled", "technologies--enabled");
+    }
+
+    document.querySelector(".technologies__tools").remove();
+    document.querySelector(".technologies__menu").appendChild(toolsTech);
+
   }
 
 }
@@ -404,11 +437,30 @@ function activateButtons() {
     })
 
   }
-  
+
+}
+//=======================================================
+
+//=======================================================
+// ABRIR SECCION PROYECTOS Y TECNOLOGIAS
+//=======================================================
+
+function activateBtnsViews() {
+
+  const btnViewSection = document.querySelectorAll(".btnViewSection");
+
+  const arrBtns = [ "technologies", "projects" ];
+
+  for(let btn = 0; btn < btnViewSection.length; btn++) {
+    btnViewSection[btn].addEventListener("click", (  ) => {
+      document.querySelector(`.${arrBtns[btn]}`).classList.replace(`${arrBtns[btn]}--disabled`, `${arrBtns[btn]}--enabled`)
+    })
+  }
 
 }
 
 //=======================================================
+
 
 window.addEventListener("load", insertBtnsNavigation);
 window.addEventListener("resize", insertBtnsNavigation);
@@ -419,3 +471,4 @@ window.addEventListener("load", () => {
   activeProject(0);
 });
 window.addEventListener("load", activateButtons);
+window.addEventListener("load", activateBtnsViews);

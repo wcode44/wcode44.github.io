@@ -5,11 +5,19 @@
 
   padding: 0 2.5rem;
 
-  display: flex;
+  /* display: flex; */
   align-items: center;
   gap: 3rem;
 
   background-color: var(--colorWhite);
+}
+
+.portfolio__header--enabled {
+  display: flex;
+}
+
+.portfolio__header--disabled {
+  display: none;
 }
 
 .portfolio__logo {
@@ -51,4 +59,11 @@
   /* transform: translateX(100px); */
   /* right: 0; */
   background-color: var(--colorLightblue);
+}
+
+/* FULL SCREEN */
+@media screen and (min-width: 1000px) and (min-height: 590px) {
+  .portfolio__header {
+    grid-column: 1 / 2;
+  }
 }

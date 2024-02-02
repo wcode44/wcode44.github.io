@@ -2,7 +2,7 @@
 function menuPortfolio() {
 
   const header = document.createElement("header");
-  header.classList.add("portfolio__header");
+  header.classList.add("portfolio__header", "portfolio__header--disabled");
 
   // LOGO
   const logoPortfolio = document.createElement("span");

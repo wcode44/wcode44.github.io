@@ -11,7 +11,7 @@ const toolsTech = toolsTechnologies();
 
 function technologies() {
   const section = document.createElement("section");
-  section.classList.add("technologies");
+  section.classList.add("technologies", "technologies--disabled");
 
   section.appendChild(headerTechnologies);
   section.appendChild(navbarTech);

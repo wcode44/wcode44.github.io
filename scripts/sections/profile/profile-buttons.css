@@ -11,7 +11,16 @@
 
 }
 
-[class^="btn__view"] {
+.profile__buttons--enabled {
+  display: grid;
+}
+
+.profile__buttons--disabled {
+  display: none;
+}
+
+/* [class^="btn__view"] { */
+.btnViewSection {
   height: 7rem;
 
   border-radius: 0.5rem;

@@ -4,13 +4,21 @@
   width: 100%;
   height: 100%;
 
-  display: grid;
+  /* display: grid; */
   /* display: none; */
   /* grid-template-rows: auto 1fr 20rem; */
   grid-template-rows: repeat(2, auto) 1fr auto;
 
   position: absolute;
   background-color: var(--colorWhite);
+}
+
+.projects--enabled {
+  display: grid;
+}
+
+.projects--disabled {
+  display: none;
 }
 
 /* PHONE LANDSCAPE */
@@ -20,7 +28,7 @@
     width: 100%;
     height: 100%;
   
-    display: grid;
+    /* display: grid; */
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, auto) 1fr;
   
@@ -37,7 +45,7 @@
     grid-column: 1 / 3;
     grid-row: 2 / 3;
 
-    display: grid;
+    /* display: grid; */
     grid-template-columns: 35.5rem 1fr;
     grid-template-rows: repeat(2, auto) 1fr auto;
 
