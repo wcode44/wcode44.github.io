@@ -9,7 +9,7 @@
   border-radius: 50%;
   border: .3rem solid var(--colorBlack);
 
-  z-index: 1;
+
   background-color: var(--colorGray);
 
   position: absolute;
@@ -21,3 +21,11 @@
 
   cursor: pointer;
 }
+
+/* TABLET PORTRAIT */
+/* @media screen and (min-width: 650px) and (min-height: 601px) { */
+  @media screen and (min-width: 650px) and (min-height: 590px) {
+    .btnViewProfile {
+      z-index: 2;
+    }
+  }

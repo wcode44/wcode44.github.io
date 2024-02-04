@@ -9,7 +9,7 @@
   background-color: var(--colorWhite);
   display: none;
   position: absolute;
-  
+  z-index: 2;
 }
 
 .technologies--enabled {
@@ -47,6 +47,7 @@
     width: initial;
     height: initial;
     padding: 0 2.5rem;
+    z-index: initial;
     
     /* display: grid; */
     /* display: none; */
@@ -68,6 +69,7 @@
       width: initial;
       height: initial;
       padding: 0 2.5rem;
+      z-index: initial;
       
       /* display: grid; */
       /* display: none; */

@@ -21,7 +21,7 @@
 
 /* [class^="btn__view"] { */
 .btnViewSection {
-  height: 7rem;
+  height: 8rem;
 
   border-radius: 0.5rem;
   border: 0.1rem solid var(--colorBlack);
@@ -60,7 +60,8 @@
     gap: 0.5rem;
   }
 
-  [class^="btn__view"] {
+  /* [class^="btn__view"] { */
+  .btnViewSection {
     width: 10.8rem;
     height: 10.8rem;
 
@@ -85,3 +86,21 @@
     Y CREAR UN NAV EN EL HEADER DEL PORTAFOLIO, NO DEBE EXISTIR */
   }
 }
+
+/********************************/
+/* ANIMACION PUSH BUTTON */
+/********************************/
+.animateButton {
+  animation-name: btnAnimate;
+  /* animation-duration: .5s; */
+  animation-duration: .5s;
+  animation-timing-function: ease-in;
+  /* animation-iteration-count: infinite; */
+}
+
+@keyframes btnAnimate {
+  0% { transform: scale(1); }
+  50% { transform: scale(.9); }
+  100% { transform: scale(1); }
+}
+/********************************/

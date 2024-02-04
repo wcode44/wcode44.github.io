@@ -33,8 +33,8 @@ portfolio.classList.add("portfolio");
 
 portfolio.appendChild(headerPortfolio);
 portfolio.appendChild(sectionProfile);
-portfolio.appendChild(sectionProjects);
 portfolio.appendChild(sectionTechnologies);
+portfolio.appendChild(sectionProjects);
 app.appendChild(portfolio);
 
 
@@ -64,10 +64,16 @@ function insertBtnsNavigation() {
     }
 
     // SI ESTAN ACTIVADOS, DESACTIVALOS
-    if(sectionProjects.classList.contains("projects--enabled") && sectionTechnologies.classList.contains("technologies--enabled")) {
-      sectionProjects.classList.replace("projects--enabled", "projects--disabled");
-      sectionTechnologies.classList.replace("technologies--enabled", "technologies--disabled");
-    }
+    // if(sectionProjects.classList.contains("projects--enabled")) {
+      
+    //   sectionProjects.classList.replace("projects--enabled", "projects--disabled");
+
+    // } else if(sectionTechnologies.classList.contains("technologies--enabled")) {
+
+    //   sectionTechnologies.classList.replace("technologies--enabled", "technologies--disabled");
+
+    // }
+    
 
     document.querySelector(".technologies__tools").remove();
     document.querySelector(".technologies").appendChild(toolsTech);
@@ -87,8 +93,12 @@ function insertBtnsNavigation() {
 
     // SI ESTAN DESACTIVADOS, ACTIVALOS
     if(sectionProjects.classList.contains("projects--disabled") && sectionTechnologies.classList.contains("technologies--disabled")) {
-      sectionProjects.classList.replace("projects--disabled", "projects--enabled");
-      sectionTechnologies.classList.replace("technologies--disabled", "technologies--enabled");
+        sectionProjects.classList.replace("projects--disabled", "projects--enabled");
+    }
+
+    // SI TIENE AUN EL FONDO DEL MODAL, ELIMINARLO
+    if(app.classList.contains("app--activateModal")) {
+      app.classList.remove("app--activateModal");
     }
 
     document.querySelector(".technologies__tools").remove();
@@ -445,15 +455,37 @@ function activateButtons() {
 // ABRIR SECCION PROYECTOS Y TECNOLOGIAS
 //=======================================================
 
-function activateBtnsViews() {
+function activateBtnsViewsAndClose() {
 
   const btnViewSection = document.querySelectorAll(".btnViewSection");
+  const btnCloseSection = document.querySelectorAll(".btnClose");
 
   const arrBtns = [ "technologies", "projects" ];
 
   for(let btn = 0; btn < btnViewSection.length; btn++) {
     btnViewSection[btn].addEventListener("click", (  ) => {
-      document.querySelector(`.${arrBtns[btn]}`).classList.replace(`${arrBtns[btn]}--disabled`, `${arrBtns[btn]}--enabled`)
+
+      btnViewSection[btn].classList.add("animateButton");
+
+      setTimeout(() => {
+
+        document.querySelector(`.${arrBtns[btn]}`).classList.replace(`${arrBtns[btn]}--disabled`, `${arrBtns[btn]}--enabled`);
+        app.classList.add("app--activateModal");
+
+      }, 600);
+
+      // ELIMINAMOS LA CLASE PARA ANIMAR EL BOTON
+      setTimeout(() => {
+        btnViewSection[btn].classList.remove("animateButton")
+      }, "1000");
+
+    })
+  }
+
+  for(let btnClose = 0; btnClose < btnCloseSection.length; btnClose++) {
+    btnCloseSection[btnClose].addEventListener("click", ( ) => {
+      document.querySelector(`.${arrBtns[btnClose]}`).classList.replace(`${arrBtns[btnClose]}--enabled`, `${arrBtns[btnClose]}--disabled`);
+      app.classList.remove("app--activateModal");
     })
   }
 
@@ -471,4 +503,4 @@ window.addEventListener("load", () => {
   activeProject(0);
 });
 window.addEventListener("load", activateButtons);
-window.addEventListener("load", activateBtnsViews);
+window.addEventListener("load", activateBtnsViewsAndClose);

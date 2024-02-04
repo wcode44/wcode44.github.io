@@ -11,6 +11,7 @@
 
   position: absolute;
   background-color: var(--colorWhite);
+  z-index: 2;
 }
 
 .projects--enabled {
@@ -52,6 +53,7 @@
     width: initial;
     height: initial;
     position: initial;
+    z-index: initial;
   }
 
 }
@@ -67,6 +69,7 @@
     width: initial;
     height: initial;
     position: initial;
+    z-index: initial;
     background-image: url("../../../assets/devWill.png");
     background-size: 30rem;
     background-repeat: no-repeat;

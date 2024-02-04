@@ -13,7 +13,7 @@ const sectionNavProjects = navbarProjects();
 
 function projects() {
   const section = document.createElement("section");
-  section.classList.add("projects", "projects--disabled");
+  section.classList.add("projects", "projects--enabled");
 
   section.appendChild(headerProjects);
   section.appendChild(sectionFilter);
