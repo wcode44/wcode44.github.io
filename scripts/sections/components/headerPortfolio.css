@@ -41,14 +41,26 @@
   display: flex;
 }
 
-.portfolio__menu li {
+/* .portfolio__menu li { */
+.portfolio__menu_btnSection {
   width: 16rem;
   height: 4.5rem;
   display: grid;
   place-items: center;
   font-size: 1.6rem;
   font-weight: 600;
+  border: none;
+  background-color: transparent;
   cursor: pointer;
+}
+
+.portfolio__menu_btnSection:hover {
+  opacity: .8;
+  /* cursor: pointer; */
+}
+
+.btn--selected {
+  cursor: initial;
 }
 
 .barSelect {
@@ -56,9 +68,18 @@
   width: 16rem;
   min-height: .5rem;
   position: absolute;
+  transition: .2s linear;
   /* transform: translateX(100px); */
   /* right: 0; */
   background-color: var(--colorLightblue);
+}
+
+.barSelect--right {
+  transform: translateX(16rem);
+}
+
+.barSelect--left {
+  transform: translateX(0);
 }
 
 /* FULL SCREEN */

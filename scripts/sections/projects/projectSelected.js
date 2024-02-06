@@ -21,7 +21,7 @@ function selectProject() {
   btnStartProject.href = "";
   btnStartProject.target = "_blank";
   btnStartProject.innerHTML = `<i class='bx bx-play-circle' ></i>`;
-  btnStartProject.title = "Mostrar Proyecto";
+  btnStartProject.title = "Ejecutar Proyecto";
 
   section.appendChild(typeProjectText);
   section.appendChild(titleProjectText);

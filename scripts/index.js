@@ -3,7 +3,7 @@
 
 import profile from "./sections/profile/profile.js";
 import btnEmail from "./sections/components/btnEmail.js";
-import {iconArrow, btnViewProfile} from "./sections/components/btnViewProfile.js";
+import { iconArrow, btnViewProfile } from "./sections/components/btnViewProfile.js";
 // import profileButtons from "./sections/profile/profile-buttons.js";
 import menuPortfolio from "./sections/components/headerPortfolio.js";
 import technologies from "./sections/technologies/technologies.js";
@@ -49,23 +49,25 @@ function insertBtnsNavigation() {
 
   const groupButtons = document.querySelector(".profile__buttons");
   const headerPortfolio = document.querySelector(".portfolio__header");
+  const headerButtons = document.querySelectorAll(".portfolio__menu_btnSection");
+  const barSelectSection = document.querySelector(".barSelect");
 
   // VERIFICAR SI ESTA EN TAMAÑO PHONE
-  if(mobilePortrait || mobileLandscape) {
+  if (mobilePortrait || mobileLandscape) {
 
     // VERIFICAR SI LA SECCION DE GROUP BUTTONS ESTA DESACTIVADO, ACTIVARLO
-    if(groupButtons.classList.contains("profile__buttons--disabled")) {
+    if (groupButtons.classList.contains("profile__buttons--disabled")) {
       groupButtons.classList.replace("profile__buttons--disabled", "profile__buttons--enabled");
     }
 
     // VERIFICA SI ESTA ACTIVO EL HEADER, DESACTIVALO
-    if(headerPortfolio.classList.contains("portfolio__header--enabled")) {
+    if (headerPortfolio.classList.contains("portfolio__header--enabled")) {
       headerPortfolio.classList.replace("portfolio__header--enabled", "portfolio__header--disabled");
     }
 
     // SI ESTAN ACTIVADOS, DESACTIVALOS
     // if(sectionProjects.classList.contains("projects--enabled")) {
-      
+
     //   sectionProjects.classList.replace("projects--enabled", "projects--disabled");
 
     // } else if(sectionTechnologies.classList.contains("technologies--enabled")) {
@@ -73,7 +75,7 @@ function insertBtnsNavigation() {
     //   sectionTechnologies.classList.replace("technologies--enabled", "technologies--disabled");
 
     // }
-    
+
 
     document.querySelector(".technologies__tools").remove();
     document.querySelector(".technologies").appendChild(toolsTech);
@@ -82,22 +84,48 @@ function insertBtnsNavigation() {
   } else {
 
     // VERIFICAR SI LA SECCION DE GROUP BUTTONS ESTA ACTIVADO, DESACTIVARLO
-    if(groupButtons.classList.contains("profile__buttons--enabled")) {
+    if (groupButtons.classList.contains("profile__buttons--enabled")) {
       groupButtons.classList.replace("profile__buttons--enabled", "profile__buttons--disabled");
     }
 
     // VERIFICA SI ESTA DESACTIVADO EL HEADER, ACTIVARLO
-    if(headerPortfolio.classList.contains("portfolio__header--disabled")) {
+    if (headerPortfolio.classList.contains("portfolio__header--disabled")) {
       headerPortfolio.classList.replace("portfolio__header--disabled", "portfolio__header--enabled");
     }
 
     // SI ESTAN DESACTIVADOS, ACTIVALOS
-    if(sectionProjects.classList.contains("projects--disabled") && sectionTechnologies.classList.contains("technologies--disabled")) {
-        sectionProjects.classList.replace("projects--disabled", "projects--enabled");
+    if (sectionProjects.classList.contains("projects--disabled") && sectionTechnologies.classList.contains("technologies--disabled")) {
+
+      // ACTIVAMOS EL BOTON DE PROYECTOS
+      btnDefaultHeader(1);
+
+
+      // sectionProjects.classList.replace("projects--disabled", "projects--enabled"); 
+
+      // for(let i = 0; i < headerButtons.length; i++) {
+      //   if(headerButtons[i].classList.contains("btn--selected")) {
+      //     headerButtons[i].classList.remove("btn--selected");
+      //     break;
+      //   }
+      // }
+
+      // BOTON QUE SE ACTIVARA POR DEFECTO CUANDO NO HAYA NINGUN BOTON ACTIVO
+      // headerButtons[0].classList.add("btn--selected")
+
+      // if(headerButtons[0].classList.contains("btn--selected")) {
+      //   barSelectSection.classList.replace("barSelect--right", "barSelect--left");
+      //   sectionProjects.classList.replace("projects--enabled", "projects--disabled");
+      //   sectionTechnologies.classList.replace("technologies--disabled", "technologies--enabled");
+      // } else {
+      //   barSelectSection.classList.replace("barSelect--left", "barSelect--right");
+      //   sectionProjects.classList.replace("projects--disabled", "projects--enabled");
+      //   sectionTechnologies.classList.replace("technologies--enabled", "technologies--disabled");
+      // }
+
     }
 
     // SI TIENE AUN EL FONDO DEL MODAL, ELIMINARLO
-    if(app.classList.contains("app--activateModal")) {
+    if (app.classList.contains("app--activateModal")) {
       app.classList.remove("app--activateModal");
     }
 
@@ -158,12 +186,12 @@ btnArrow.addEventListener("click", () => {
 const lblTech = document.querySelectorAll(".technologies__lblTech");
 const inputRadioTech = document.querySelectorAll(".inputRadioTech");
 
-for(let i = 0; i < inputRadioTech.length; i++) {
+for (let i = 0; i < inputRadioTech.length; i++) {
   inputRadioTech[i].addEventListener("click", () => {
-    if(inputRadioTech[i].checked) {
+    if (inputRadioTech[i].checked) {
 
-      for(let j = 0; j < inputRadioTech.length; j++) {
-        if(inputRadioTech[j].hasAttribute("checked")) {
+      for (let j = 0; j < inputRadioTech.length; j++) {
+        if (inputRadioTech[j].hasAttribute("checked")) {
 
           inputRadioTech[j].removeAttribute("checked");
           inputRadioTech[j].removeAttribute("disabled");
@@ -180,9 +208,9 @@ for(let i = 0; i < inputRadioTech.length; i++) {
       lblTech[i].classList.add(`technologies__lblTech--active${i}`);
 
       // INSERTANDO LA TECNOLOGIA SELECCIONADA
-      if(i === 0) {
+      if (i === 0) {
         sectionTechnologies.appendChild(selectedTechnologies("html"));
-      } else if(i === 1) {
+      } else if (i === 1) {
         sectionTechnologies.appendChild(selectedTechnologies("css"));
       } else {
         sectionTechnologies.appendChild(selectedTechnologies("js"));
@@ -200,9 +228,9 @@ function menuTechSelected__load(opt) {
   inputRadioTech[optionSelected].setAttribute("disabled", "");
   lblTech[optionSelected].classList.add(`technologies__lblTech--active${optionSelected}`);
 
-  if(optionSelected === 0) {
+  if (optionSelected === 0) {
     sectionTechnologies.appendChild(selectedTechnologies("html"));
-  } else if(optionSelected === 1) {
+  } else if (optionSelected === 1) {
     sectionTechnologies.appendChild(selectedTechnologies("css"));
   } else {
     sectionTechnologies.appendChild(selectedTechnologies("js"));
@@ -223,14 +251,14 @@ function activeProject(projectSelected) {
   const btnStartProjectSelected = document.querySelector(".projects__btnStart");
 
   techUsedProjectSelected.innerHTML = `<span>[</span><span class="lastBracketTech">]</span>`;
-  
+
   // CUANDO SELECCIONES UN PROYECTO
-  for(let i = 0; i < listProjects.length; i++) {
+  for (let i = 0; i < listProjects.length; i++) {
     listProjects[i].addEventListener("click", () => {
 
       // VERIFICAR SI UN BOTON DE PROYECTO TIENE EL ATRIBUTO DISABLED, QUITALO
-      for(let m = 0; m < listProjects.length; m++) {
-        if(listProjects[m].hasAttribute("disabled")) {
+      for (let m = 0; m < listProjects.length; m++) {
+        if (listProjects[m].hasAttribute("disabled")) {
           listProjects[m].removeAttribute("disabled");
           break;
         }
@@ -238,7 +266,7 @@ function activeProject(projectSelected) {
 
       // ELIMINANDO ICON TECH ANTERIORES
       const iconTechUsed = document.querySelectorAll(".iconTech");
-      for(let n = 0; n < iconTechUsed.length; n++) {
+      for (let n = 0; n < iconTechUsed.length; n++) {
         iconTechUsed[n].remove();
       }
 
@@ -252,24 +280,24 @@ function activeProject(projectSelected) {
 
       // ACTUALIZAMOS EL TIPO DEL PROYECTO
       // CODIGO REPETIDO
-      if(myProjects[i].typeProject === "landing") {
+      if (myProjects[i].typeProject === "landing") {
         typeProjectSelected.innerHTML = `Landing Page`;
-      } else if(myProjects[i].typeProject === "game") {
+      } else if (myProjects[i].typeProject === "game") {
         typeProjectSelected.innerHTML = `Video Game`;
       } else {
         typeProjectSelected.innerHTML = `Dashboard`;
       }
 
       // LISTAR ICONOS TECH USADAS
-      for(let k = 0; k < myProjects[i].techUsedProject.length; k++) {
+      for (let k = 0; k < myProjects[i].techUsedProject.length; k++) {
         const iconTech = document.createElement("i");
         iconTech.classList.add("bx", `bxl-${myProjects[i].techUsedProject[k]}`, "iconTech");
         techUsedProjectSelected.insertBefore(iconTech, document.querySelector(".lastBracketTech"));
       }
 
       // CARD PROJECT ACTIVE
-      for(let j = 0; j < listProjects.length; j++) {
-        if(listProjects[j].classList.contains("projects__card--active")) {
+      for (let j = 0; j < listProjects.length; j++) {
+        if (listProjects[j].classList.contains("projects__card--active")) {
           listProjects[j].classList.remove("projects__card--active");
           break;
         }
@@ -280,7 +308,7 @@ function activeProject(projectSelected) {
 
     });
   }
-  
+
   // LOAD POR DEFECTO
   listProjects[projectSelected].classList.add("projects__card--active");
   listProjects[projectSelected].setAttribute("disabled", "");
@@ -289,7 +317,7 @@ function activeProject(projectSelected) {
   btnStartProjectSelected.href = `${myProjects[projectSelected].linkProject}`;
 
   // LISTAR ICONOS TECH USADAS POR DEFAULT
-  for(let m = 0; m < myProjects[projectSelected].techUsedProject.length; m++) {
+  for (let m = 0; m < myProjects[projectSelected].techUsedProject.length; m++) {
     const iconTech = document.createElement("i");
     iconTech.classList.add("bx", `bxl-${myProjects[projectSelected].techUsedProject[m]}`, "iconTech");
     techUsedProjectSelected.insertBefore(iconTech, document.querySelector(".lastBracketTech"));
@@ -297,9 +325,9 @@ function activeProject(projectSelected) {
 
 
   // CODIGO REPETIDO
-  if(myProjects[projectSelected].typeProject === "landing") {
+  if (myProjects[projectSelected].typeProject === "landing") {
     typeProjectSelected.innerHTML = `Landing Page`;
-  } else if(myProjects[projectSelected].typeProject === "game") {
+  } else if (myProjects[projectSelected].typeProject === "game") {
     typeProjectSelected.innerHTML = `Video Game`;
   } else {
     typeProjectSelected.innerHTML = `Dashboard`;
@@ -337,7 +365,7 @@ function activateButtons() {
     event.preventDefault(); //PREVIENE QUE EL EVENTO SE DUPLIQUE
     lblFilterProjects.classList.toggle("lblCheckFilter--active");
 
-    if(lblFilterProjects.classList.contains("lblCheckFilter--active")) {
+    if (lblFilterProjects.classList.contains("lblCheckFilter--active")) {
 
       menuBtnFilter.classList.add("projects__menuBtnFilter--active")
 
@@ -348,16 +376,16 @@ function activateButtons() {
       menuBtnFilter.classList.remove("projects__menuBtnFilter--active");
 
       // QUITAR LA CLASE ACTIVADO AL BOTON DE FILTRO QUE LO TENGA
-      for(let i = 0; i < buttonsFilter.length; i++) {
-        if(buttonsFilter[i].classList.contains("btnFilter--active")) {
+      for (let i = 0; i < buttonsFilter.length; i++) {
+        if (buttonsFilter[i].classList.contains("btnFilter--active")) {
           buttonsFilter[i].classList.remove("btnFilter--active");
           break;
         }
       }
 
       // ACTIVAR TODOS LOS LI DE LOS BOTONES PROYECTOS
-      for(let j = 0; j < listItemsProjects.length; j++) {
-        if(listItemsProjects[j].classList.contains("projects__listItems--disabled")) {
+      for (let j = 0; j < listItemsProjects.length; j++) {
+        if (listItemsProjects[j].classList.contains("projects__listItems--disabled")) {
           listItemsProjects[j].classList.replace("projects__listItems--disabled", "projects__listItems--enabled");
         } else {
           continue;
@@ -380,38 +408,38 @@ function activateButtons() {
     "projects__card--iconLanding"
   ]
 
-  for(let i = 0; i < buttonsFilter.length; i++){
+  for (let i = 0; i < buttonsFilter.length; i++) {
 
     // CUANDO HAGAMOS CLIC EN CADA BOTON DE FILTRO
     buttonsFilter[i].addEventListener("click", () => {
 
       // QUITAMOS LA CLASE ACTIVO AL BOTON DE FILTRO QUE LO TENGA
-      for(let j = 0; j < buttonsFilter.length; j++) {
-        if(buttonsFilter[j].classList.contains("btnFilter--active")) {
+      for (let j = 0; j < buttonsFilter.length; j++) {
+        if (buttonsFilter[j].classList.contains("btnFilter--active")) {
           buttonsFilter[j].classList.remove("btnFilter--active");
           break;
         }
       }
 
       // QUITAMOS EL ATRIBUTO DISABLED AL BOTON QUE LO TENGA
-      for(let e = 0; e < btnProjects.length; e++) {
-        if(btnProjects[e].hasAttribute("disabled")) {
+      for (let e = 0; e < btnProjects.length; e++) {
+        if (btnProjects[e].hasAttribute("disabled")) {
           btnProjects[e].removeAttribute("disabled");
           break;
         }
       }
-      
+
       // AGREGAMOS LA CLASE ACTIVO AL BOTON FILTRO SELECCIONADO
       buttonsFilter[i].classList.add("btnFilter--active");
 
       // ACTIVAR Y DESACTIVAR LOS BOTONES DE PROYECTOS FILTRADOS
-      for(let k = 0; k < btnProjects.length; k++) {
+      for (let k = 0; k < btnProjects.length; k++) {
 
-        if(btnProjects[k].classList.contains(btnFilterClass[i])) {
+        if (btnProjects[k].classList.contains(btnFilterClass[i])) {
 
-          if(listItemsProjects[k].classList.contains("projects__listItems--disabled")) {
+          if (listItemsProjects[k].classList.contains("projects__listItems--disabled")) {
             listItemsProjects[k].classList.replace("projects__listItems--disabled", "projects__listItems--enabled");
-            
+
           } else {
             continue;
           }
@@ -422,8 +450,8 @@ function activateButtons() {
           listItemsProjects[k].classList.replace("projects__listItems--enabled", "projects__listItems--disabled");
 
           // QUITAMOS LA CLASE ACTIVO DEL BOTON PROYECTO
-          for(let m = 0; m < btnProjects.length; m++) {
-            if(btnProjects[m].classList.contains("projects__card--active")) {
+          for (let m = 0; m < btnProjects.length; m++) {
+            if (btnProjects[m].classList.contains("projects__card--active")) {
               btnProjects[m].classList.remove("projects__card--active");
               break;
             }
@@ -434,8 +462,8 @@ function activateButtons() {
       }
 
       // SELECCIONAS EL PRIMER ELEMENTO FILTRADO
-      for(let li = 0; li < listItemsProjects.length; li++) {
-        if(listItemsProjects[li].classList.contains("projects__listItems--enabled")) {
+      for (let li = 0; li < listItemsProjects.length; li++) {
+        if (listItemsProjects[li].classList.contains("projects__listItems--enabled")) {
           activeProject(li);
           break;
         }
@@ -459,11 +487,14 @@ function activateBtnsViewsAndClose() {
 
   const btnViewSection = document.querySelectorAll(".btnViewSection");
   const btnCloseSection = document.querySelectorAll(".btnClose");
+  const headerButtons = document.querySelectorAll(".portfolio__menu_btnSection");
+  const barSelectSection = document.querySelector(".barSelect");
 
-  const arrBtns = [ "technologies", "projects" ];
+  const arrBtns = ["technologies", "projects"];
 
-  for(let btn = 0; btn < btnViewSection.length; btn++) {
-    btnViewSection[btn].addEventListener("click", (  ) => {
+  // BOTONES MODO MOBILE
+  for (let btn = 0; btn < btnViewSection.length; btn++) {
+    btnViewSection[btn].addEventListener("click", () => {
 
       btnViewSection[btn].classList.add("animateButton");
 
@@ -482,11 +513,84 @@ function activateBtnsViewsAndClose() {
     })
   }
 
-  for(let btnClose = 0; btnClose < btnCloseSection.length; btnClose++) {
-    btnCloseSection[btnClose].addEventListener("click", ( ) => {
+  // BOTONES CERRAR MOBILE
+  for (let btnClose = 0; btnClose < btnCloseSection.length; btnClose++) {
+    btnCloseSection[btnClose].addEventListener("click", () => {
       document.querySelector(`.${arrBtns[btnClose]}`).classList.replace(`${arrBtns[btnClose]}--enabled`, `${arrBtns[btnClose]}--disabled`);
       app.classList.remove("app--activateModal");
     })
+  }
+
+  // HEADER CON BOTONES PARA ABRIR PROYECTOS Y TECNOLOGIAS
+  for (let btn = 0; btn < headerButtons.length; btn++) {
+
+    headerButtons[btn].addEventListener("click", () => {
+
+      // ELIMINA LA CLASE ACTIVO DE LOS BOTONES Y EL ATRIBUTO DISABLED
+      for (let i = 0; i < headerButtons.length; i++) {
+        if (headerButtons[i].classList.contains("btn--selected")) {
+          headerButtons[i].classList.remove("btn--selected");
+          headerButtons[i].removeAttribute("disabled");
+          break;
+        }
+      }
+
+      // AGREGAMOS LA CLASE ACTIVO AL BOTON QUE SE HIZO CLICK Y LO DESACTIVAMOS
+      headerButtons[btn].classList.add("btn--selected");
+      headerButtons[btn].setAttribute("disabled", "");
+
+      // MOVEMOS LA BARRA AL BOTON QUE TENGA LA CLASE ACTIVO
+      if (headerButtons[0].classList.contains("btn--selected")) {
+        barSelectSection.classList.replace("barSelect--right", "barSelect--left");
+
+        setTimeout(() => {
+          sectionProjects.classList.replace("projects--enabled", "projects--disabled");
+          sectionTechnologies.classList.replace("technologies--disabled", "technologies--enabled");
+        }, 200)
+
+      } else {
+        barSelectSection.classList.replace("barSelect--left", "barSelect--right");
+
+        setTimeout(() => {
+          sectionProjects.classList.replace("projects--disabled", "projects--enabled");
+          sectionTechnologies.classList.replace("technologies--enabled", "technologies--disabled");
+        }, 200)
+
+      }
+
+    })
+
+  }
+
+}
+
+// ACTIVANDO UN BOTON TECNOLOGIA O PROYECTO POR DEFAULT
+function btnDefaultHeader(btnSelect) { // 0 or 1
+
+  const headerButtons = document.querySelectorAll(".portfolio__menu_btnSection");
+  const barSelectSection = document.querySelector(".barSelect");
+
+  // ELIMINA LA CLASE ACTIVO DE LOS BOTONES Y EL ATRIBUTO DISABLED
+  for (let i = 0; i < headerButtons.length; i++) {
+    if (headerButtons[i].classList.contains("btn--selected")) {
+      headerButtons[i].classList.remove("btn--selected");
+      headerButtons[i].removeAttribute("disabled");
+      break;
+    }
+  }
+
+  // ACTIVAMOS EL BOTON POR DEFECTO
+  headerButtons[btnSelect].classList.add("btn--selected");
+  headerButtons[btnSelect].setAttribute("disabled", "");
+
+  if (headerButtons[0].classList.contains("btn--selected")) {
+    barSelectSection.classList.replace("barSelect--right", "barSelect--left");
+    sectionProjects.classList.replace("projects--enabled", "projects--disabled");
+    sectionTechnologies.classList.replace("technologies--disabled", "technologies--enabled");
+  } else {
+    barSelectSection.classList.replace("barSelect--left", "barSelect--right");
+    sectionProjects.classList.replace("projects--disabled", "projects--enabled");
+    sectionTechnologies.classList.replace("technologies--enabled", "technologies--disabled");
   }
 
 }
@@ -499,8 +603,7 @@ window.addEventListener("resize", insertBtnsNavigation);
 window.addEventListener("load", insertBtnViewProfile);
 window.addEventListener("resize", insertBtnViewProfile);
 window.addEventListener("load", () => { menuTechSelected__load(2) });
-window.addEventListener("load", () => {
-  activeProject(0);
-});
+window.addEventListener("load", () => { activeProject(0); });
 window.addEventListener("load", activateButtons);
 window.addEventListener("load", activateBtnsViewsAndClose);
+window.addEventListener("load", () => { btnDefaultHeader(0) })
