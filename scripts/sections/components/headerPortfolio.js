@@ -26,7 +26,8 @@ function menuPortfolio() {
     } else {
       btnSection.innerHTML = "PROYECTOS";
       btnSection.title = "Mostrar Proyectos";
-      // btnSection.classList.add("li--selected");
+      // btnSection.classList.add("btn--selected");
+      // btnSection.setAttribute("disabled", "");
     }
 
     li.appendChild(btnSection);
@@ -34,7 +35,7 @@ function menuPortfolio() {
   }
   
   const barSelect = document.createElement("span");
-  barSelect.classList.add("barSelect", "barSelect--left");
+  barSelect.classList.add("barSelect");
 
   nav.appendChild(ul);
   nav.appendChild(barSelect);

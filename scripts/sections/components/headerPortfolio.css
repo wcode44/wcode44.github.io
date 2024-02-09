@@ -59,6 +59,10 @@
   /* cursor: pointer; */
 }
 
+.portfolio__menu_btnSection:disabled {
+  color: var(--colorBlack);
+}
+
 .btn--selected {
   cursor: initial;
 }

@@ -84,9 +84,10 @@
 @media screen and (max-height: 590px) and (orientation: landscape) {
   .portfolio {
 
-    width: 98vw;
+    /* width: 98vw; */
     min-width: 65rem;
-    max-width: 70rem;
+    /* max-width: 70rem; */
+    max-width: 80rem;
 
     height: 95vh;
     min-height: 32rem;

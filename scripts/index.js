@@ -47,13 +47,18 @@ function insertBtnsNavigation() {
   const mobilePortrait = window.matchMedia("(max-width: 649px)").matches;
   const mobileLandscape = window.matchMedia("(max-height: 589px)").matches;
 
+  // RANGO MOBILE
+  let rangeMobile = mobilePortrait || mobileLandscape;
+
+  const windowTechnologies = document.querySelector(".technologies");
+  const windowProjects = document.querySelector(".projects");
+  const technologiesMenu = document.querySelector(".technologies__menu");
+
   const groupButtons = document.querySelector(".profile__buttons");
   const headerPortfolio = document.querySelector(".portfolio__header");
-  const headerButtons = document.querySelectorAll(".portfolio__menu_btnSection");
-  const barSelectSection = document.querySelector(".barSelect");
 
   // VERIFICAR SI ESTA EN TAMAÑO PHONE
-  if (mobilePortrait || mobileLandscape) {
+  if (rangeMobile) {
 
     // VERIFICAR SI LA SECCION DE GROUP BUTTONS ESTA DESACTIVADO, ACTIVARLO
     if (groupButtons.classList.contains("profile__buttons--disabled")) {
@@ -65,20 +70,18 @@ function insertBtnsNavigation() {
       headerPortfolio.classList.replace("portfolio__header--enabled", "portfolio__header--disabled");
     }
 
-    // SI ESTAN ACTIVADOS, DESACTIVALOS
-    // if(sectionProjects.classList.contains("projects--enabled")) {
+    // ELIMINAMOS .TECHNOLOGIES__TOOLS DE SU ANTIGUO CONTENEDOR
+    if (technologiesMenu.querySelector(".technologies__tools")) {
+      document.querySelector(".technologies__tools").remove();
+      windowTechnologies.appendChild(toolsTech);
+    }
 
-    //   sectionProjects.classList.replace("projects--enabled", "projects--disabled");
-
-    // } else if(sectionTechnologies.classList.contains("technologies--enabled")) {
-
-    //   sectionTechnologies.classList.replace("technologies--enabled", "technologies--disabled");
-
-    // }
-
-
-    document.querySelector(".technologies__tools").remove();
-    document.querySelector(".technologies").appendChild(toolsTech);
+    // CUANDO ENTRA EN EL RANGO SI UNA SECCION ESTA HABILITADO PONER EL FONDO DEL MODAL
+    if (windowProjects.classList.contains("projects--enabled") || windowTechnologies.classList.contains("technologies--enabled")) {
+      if (!app.classList.contains("app--activateModal")) {
+        app.classList.add("app--activateModal");
+      }
+    }
 
     // DEL TABLET HACIA ADELANTE
   } else {
@@ -93,35 +96,10 @@ function insertBtnsNavigation() {
       headerPortfolio.classList.replace("portfolio__header--disabled", "portfolio__header--enabled");
     }
 
-    // SI ESTAN DESACTIVADOS, ACTIVALOS
-    if (sectionProjects.classList.contains("projects--disabled") && sectionTechnologies.classList.contains("technologies--disabled")) {
-
-      // ACTIVAMOS EL BOTON DE PROYECTOS
-      btnDefaultHeader(1);
-
-
-      // sectionProjects.classList.replace("projects--disabled", "projects--enabled"); 
-
-      // for(let i = 0; i < headerButtons.length; i++) {
-      //   if(headerButtons[i].classList.contains("btn--selected")) {
-      //     headerButtons[i].classList.remove("btn--selected");
-      //     break;
-      //   }
-      // }
-
-      // BOTON QUE SE ACTIVARA POR DEFECTO CUANDO NO HAYA NINGUN BOTON ACTIVO
-      // headerButtons[0].classList.add("btn--selected")
-
-      // if(headerButtons[0].classList.contains("btn--selected")) {
-      //   barSelectSection.classList.replace("barSelect--right", "barSelect--left");
-      //   sectionProjects.classList.replace("projects--enabled", "projects--disabled");
-      //   sectionTechnologies.classList.replace("technologies--disabled", "technologies--enabled");
-      // } else {
-      //   barSelectSection.classList.replace("barSelect--left", "barSelect--right");
-      //   sectionProjects.classList.replace("projects--disabled", "projects--enabled");
-      //   sectionTechnologies.classList.replace("technologies--enabled", "technologies--disabled");
-      // }
-
+    if (sectionTechnologies.classList.contains("technologies--disabled") && sectionProjects.classList.contains("projects--disabled")) {
+      // ACTIVAMOS PROYECTOS
+      AssingClassButtonHeadeer(1);
+      sectionProjects.classList.replace("projects--disabled", "projects--enabled")
     }
 
     // SI TIENE AUN EL FONDO DEL MODAL, ELIMINARLO
@@ -129,8 +107,11 @@ function insertBtnsNavigation() {
       app.classList.remove("app--activateModal");
     }
 
-    document.querySelector(".technologies__tools").remove();
-    document.querySelector(".technologies__menu").appendChild(toolsTech);
+
+    if (windowTechnologies.childElementCount === 4) {
+      document.querySelector(".technologies__tools").remove();
+      document.querySelector(".technologies__menu").appendChild(toolsTech);
+    }
 
   }
 
@@ -469,9 +450,6 @@ function activateButtons() {
         }
       }
 
-
-
-
     })
 
   }
@@ -500,6 +478,12 @@ function activateBtnsViewsAndClose() {
 
       setTimeout(() => {
 
+        // LIMPIAMOS LOS BOTONES Y LA BARRA
+        cleanClassButtonHeader();
+
+        // ASIGNAS AL BOTON LA CLASE ACTIVADO
+        AssingClassButtonHeadeer(btn);
+
         document.querySelector(`.${arrBtns[btn]}`).classList.replace(`${arrBtns[btn]}--disabled`, `${arrBtns[btn]}--enabled`);
         app.classList.add("app--activateModal");
 
@@ -516,6 +500,10 @@ function activateBtnsViewsAndClose() {
   // BOTONES CERRAR MOBILE
   for (let btnClose = 0; btnClose < btnCloseSection.length; btnClose++) {
     btnCloseSection[btnClose].addEventListener("click", () => {
+
+      // LIMPIAMOS LOS BOTONES Y LA BARRA
+      cleanClassButtonHeader();
+
       document.querySelector(`.${arrBtns[btnClose]}`).classList.replace(`${arrBtns[btnClose]}--enabled`, `${arrBtns[btnClose]}--disabled`);
       app.classList.remove("app--activateModal");
     })
@@ -564,9 +552,8 @@ function activateBtnsViewsAndClose() {
 
 }
 
-// ACTIVANDO UN BOTON TECNOLOGIA O PROYECTO POR DEFAULT
-function btnDefaultHeader(btnSelect) { // 0 or 1
-
+// LIMPIANDO BOTONES Y BARRA
+function cleanClassButtonHeader() {
   const headerButtons = document.querySelectorAll(".portfolio__menu_btnSection");
   const barSelectSection = document.querySelector(".barSelect");
 
@@ -579,20 +566,41 @@ function btnDefaultHeader(btnSelect) { // 0 or 1
     }
   }
 
-  // ACTIVAMOS EL BOTON POR DEFECTO
-  headerButtons[btnSelect].classList.add("btn--selected");
-  headerButtons[btnSelect].setAttribute("disabled", "");
-
-  if (headerButtons[0].classList.contains("btn--selected")) {
-    barSelectSection.classList.replace("barSelect--right", "barSelect--left");
-    sectionProjects.classList.replace("projects--enabled", "projects--disabled");
-    sectionTechnologies.classList.replace("technologies--disabled", "technologies--enabled");
-  } else {
-    barSelectSection.classList.replace("barSelect--left", "barSelect--right");
-    sectionProjects.classList.replace("projects--disabled", "projects--enabled");
-    sectionTechnologies.classList.replace("technologies--enabled", "technologies--disabled");
+  // SI LA BARRA TIENE ALGUNA DE ESAS CLASES, QUITALO
+  if (barSelectSection.classList.contains("barSelect--left")) {
+    barSelectSection.classList.remove("barSelect--left");
+  } else if (barSelectSection.classList.contains("barSelect--right")) {
+    barSelectSection.classList.remove("barSelect--right");
   }
 
+}
+
+
+// ASIGNANDO CLASE AL BOTON SELECCIONADO
+function AssingClassButtonHeadeer(btnSelected) {
+  const headerButtons = document.querySelectorAll(".portfolio__menu_btnSection");
+  const barSelectSection = document.querySelector(".barSelect");
+
+  // ACTIVAMOS EL BOTON POR DEFECTO
+  headerButtons[btnSelected].classList.add("btn--selected");
+  headerButtons[btnSelected].setAttribute("disabled", "");
+
+  if (headerButtons[0].classList.contains("btn--selected")) {
+    if (!barSelectSection.classList.contains("barSelect--left")
+      && !barSelectSection.classList.contains("barSelect--right")) {
+      barSelectSection.classList.add("barSelect--left");
+    } else if (barSelectSection.classList.contains("barSelect--right")) {
+      barSelectSection.classList.replace("barSelect--right", "barSelect--left");
+    }
+
+  } else {
+    if (!barSelectSection.classList.contains("barSelect--left")
+      && !barSelectSection.classList.contains("barSelect--right")) {
+      barSelectSection.classList.add("barSelect--right");
+    } else if (barSelectSection.classList.contains("barSelect--left")) {
+      barSelectSection.classList.replace("barSelect--left", "barSelect--right");
+    }
+  }
 }
 
 //=======================================================
@@ -606,4 +614,4 @@ window.addEventListener("load", () => { menuTechSelected__load(2) });
 window.addEventListener("load", () => { activeProject(0); });
 window.addEventListener("load", activateButtons);
 window.addEventListener("load", activateBtnsViewsAndClose);
-window.addEventListener("load", () => { btnDefaultHeader(0) })
+// window.addEventListener("load", () => { btnDefaultHeader(1) })
