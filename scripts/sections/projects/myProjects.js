@@ -5,7 +5,7 @@ const myProjects = [
     nameProject: "Cafetería Patricia",
     typeProject: "landing",
     descriptionProject: "Nuestro cliente buscaba, <strong>PROMOCIONAR</strong> su cafetería, con sus diferentes productos que ellos preparaban en su local.",
-    linkProject: "https://www.tiktok.com/@mary_qch",
+    linkProject: "https://www.facebook.com/will.tol3do/",
     techUsedProject: ["html5", "css3"]
   },
 

@@ -108,7 +108,7 @@ function insertBtnsNavigation() {
     }
 
 
-    if (windowTechnologies.childElementCount === 4) {
+    if (!technologiesMenu.querySelector(".technologies__tools")) {
       document.querySelector(".technologies__tools").remove();
       document.querySelector(".technologies__menu").appendChild(toolsTech);
     }
