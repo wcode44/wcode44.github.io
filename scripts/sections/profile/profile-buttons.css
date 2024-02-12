@@ -36,12 +36,12 @@
 
 .btn__viewTechnologies {
   background-color: var(--colorGreen);
-  background-image: url("../../../assets/tech.png");
+  background-image: url("../../../assets/tech.webp");
 }
 
 .btn__viewProjects {
   background-color: var(--colorBlack);
-  background-image: url("../../../assets/projects.png");
+  background-image: url("../../../assets/projects.webp");
 }
 
 /* PHONE LANDSCAPE */

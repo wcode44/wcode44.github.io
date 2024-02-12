@@ -8,7 +8,7 @@ function btnEmail() {
   button.setAttribute("title", "Enviar Correo");
 
   imgEmail.classList.add("imgEmail");
-  imgEmail.src = `../../assets/email.png`;
+  imgEmail.src = `../../assets/email.webp`;
   imgEmail.alt = "Icono Email";
 
   button.appendChild(imgEmail);

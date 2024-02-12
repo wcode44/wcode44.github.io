@@ -74,15 +74,15 @@
 
 
 .projects__card--iconGame {
-  background-image: url("../../../assets/iconGame.png");
+  background-image: url("../../../assets/iconGame.webp");
 }
 
 .projects__card--iconDashboard {
-  background-image: url("../../../assets/iconDashboard.png");
+  background-image: url("../../../assets/iconDashboard.webp");
 }
 
 .projects__card--iconLanding {
-  background-image: url("./../../../assets/iconLandingPage.png");
+  background-image: url("./../../../assets/iconLandingPage.webp");
 }
 
 /* PARA GOOGLE CHROME */

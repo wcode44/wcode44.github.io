@@ -42,7 +42,7 @@
   height: 5.7rem;
   border: 0.1rem dotted var(--colorGray);
   background-color: var(--colorPlusIcon);
-  background-image: url("../../../assets/light.png");
+  background-image: url("../../../assets/light.webp");
   background-size: 3rem;
   background-repeat: no-repeat;
   background-position: center;

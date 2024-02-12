@@ -6,7 +6,7 @@
   position: relative;
 
   background-color: var(--colorBlack);
-  background-image: url("../../../assets/background.jpg");
+  background-image: url("../../../assets/background_header_profile.webp");
   background-size: cover;
   background-position: bottom;
 }
@@ -76,7 +76,7 @@
     position: relative;
 
     background-color: var(--colorBlack);
-    background-image: url("../../../assets/background.jpg");
+    background-image: url("../../../assets/background_header_profile.webp");
     background-size: cover;
     background-position: bottom;
   }
